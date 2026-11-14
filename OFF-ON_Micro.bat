@@ -1,7 +1,6 @@
 <# :
 @echo off
-set "PTT_SELF=%~f0"
-start "" powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "iex ([IO.File]::ReadAllText($env:PTT_SELF))"
+type "%~f0" | powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command "iex ([Console]::In.ReadToEnd())"
 exit /b
 #>
 
